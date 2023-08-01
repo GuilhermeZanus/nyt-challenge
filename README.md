@@ -20,13 +20,22 @@ To run this automation script, you need the following libraries installed:
 3. RPA.Excel.Files
 4. RPA.HTTP
 
-Make sure to install these libraries using pip:
+Make sure to install the following library using pip:
 
 pip install rpa-framework
 
 ## How to Use
 
-1. Ensure you have met all the requirements mentioned above.
-2. Copy the provided code and save it to a Python file (e.g., nytimes_automation.py).
-3. Update the sections, search_phrase, and months_of_search variables according to your requirements in the run_automation method of the NyTimesAutomation class.
-4. Run the Python script
+In VS Code, follow the following steps to create a minimal Python robot using Robocorp:
+
+1. Press "Ctrl + Shift + P" (or "Cmd + Shift + P" on macOS) to open the command palette.
+
+2. In the command palette, type "Robocorp: Create Robot" and select the option that appears.
+
+3. Next, in the prompt that shows up, select "Python Minimal" to create a minimal Python-based robot. Following these first three steps will create a new robot skeleton. 
+
+4. Copy the provided code and save it in this new project.
+
+5. Update the sections, search_phrase, and months_of_search variables according to your requirements in the run_automation method of the NyTimesAutomation class.
+
+6. Run the Python script
