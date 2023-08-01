@@ -212,52 +212,104 @@ class Actions:
     in the title and description, if the title or description contains an amount of money. In addition 
     to downloading the respective news image
     """
+    # def extract_data(self, i, search_phrase) -> None:
+    #     article_list = self.find.news_items()
+        
+    #     data = []
+
+    #     # Title text 
+    #     title_element = self.find.title_element(i)
+    #     title_text = self.browser.get_text(title_element)
+
+    #     # Date
+    #     date_element = self.find.date_element(i)
+    #     date = self.browser.get_text(date_element)
+
+    #     # Description text
+    #     try:
+    #         description_elememt = self.find.description_elememt(i)
+    #         description_text = self.browser.get_text(description_elememt)
+
+    #     except ElementNotFound:
+    #             description_text = "No description available"
+
+    #     # Picture Filename
+    #     try:
+    #         filename_element = self.find.filename_element(i)       
+    #         filename_src = self.browser.get_element_attribute(filename_element, "src")        
+    #         full_filename_text = os.path.basename(filename_src)
+    #         filename_size = len(full_filename_text) - 37
+    #         filename_text = full_filename_text[:filename_size]
+
+    #     except ElementNotFound:
+    #         filename_text = "No picture available"
+        
+    #     # Total of occurances
+    #     total_of_occurrences = self.get_total_of_occurrences(i, search_phrase)
+
+    #     # True or false amount of money
+    #     true_or_false = self.check_contains_money(i)
+
+    #     # Download images
+    #     self.download_images(i)
+
+    #     # Append to list
+    #     news = [title_text, date, description_text, filename_text, total_of_occurrences, true_or_false]
+    #     data.append(news)
+    #     self.excel_file.set_cell_values("A"+str(i+1),data)
+    #     self.save_workbook()
+
+
     def extract_data(self, i, search_phrase) -> None:
-        article_list = self.find.news_items()
-        
-        data = []
-
-        # Title text 
-        title_element = self.find.title_element(i)
-        title_text = self.browser.get_text(title_element)
-
-        # Date
-        date_element = self.find.date_element(i)
-        date = self.browser.get_text(date_element)
-
-        # Description text
         try:
-            description_elememt = self.find.description_elememt(i)
-            description_text = self.browser.get_text(description_elememt)
+            article_list = self.find.news_items()
+            
+            data = []
 
-        except ElementNotFound:
-                description_text = "No description available"
+            # Title text 
+            title_element = self.find.title_element(i)
+            title_text = self.browser.get_text(title_element)
 
-        # Picture Filename
-        try:
-            filename_element = self.find.filename_element(i)       
-            filename_src = self.browser.get_element_attribute(filename_element, "src")        
-            full_filename_text = os.path.basename(filename_src)
-            filename_size = len(full_filename_text) - 37
-            filename_text = full_filename_text[:filename_size]
+            # Date
+            date_element = self.find.date_element(i)
+            date = self.browser.get_text(date_element)
 
-        except ElementNotFound:
-            filename_text = "No picture available"
-        
-        # Total of occurances
-        total_of_occurrences = self.get_total_of_occurrences(i, search_phrase)
+            # Description text
+            try:
+                description_elememt = self.find.description_elememt(i)
+                description_text = self.browser.get_text(description_elememt)
 
-        # True or false amount of money
-        true_or_false = self.check_contains_money(i)
+            except ElementNotFound:
+                    description_text = "No description available"
 
-        # Download images
-        self.download_images(i)
+            # Picture Filename
+            try:
+                filename_element = self.find.filename_element(i)       
+                filename_src = self.browser.get_element_attribute(filename_element, "src")        
+                full_filename_text = os.path.basename(filename_src)
+                filename_size = len(full_filename_text) - 37
+                filename_text = full_filename_text[:filename_size]
 
-        # Append to list
-        news = [title_text, date, description_text, filename_text, total_of_occurrences, true_or_false]
-        data.append(news)
-        self.excel_file.set_cell_values("A"+str(i+1),data)
-        self.save_workbook()
+            except ElementNotFound:
+                filename_text = "No picture available"
+            
+            # Total of occurances
+            total_of_occurrences = self.get_total_of_occurrences(i, search_phrase)
+
+            # True or false amount of money
+            true_or_false = self.check_contains_money(i)
+
+            # Download images
+            self.download_images(i)
+
+
+        finally:
+            # Append to list
+            news = [title_text, date, description_text, filename_text, total_of_occurrences, true_or_false]
+            data.append(news)
+            self.excel_file.set_cell_values("A"+str(i+1),data)
+            self.save_workbook()
+    
 
 
     """
