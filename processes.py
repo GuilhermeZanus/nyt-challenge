@@ -76,7 +76,7 @@ class Actions:
 
     def create_workbook(self) -> None:
         # self.excel_file.create_workbook()
-        self.excel_file.create_workbook(path="./output/news.xlsx")
+        self.excel_file.create_workbook(path="/output/news.xlsx")
         self.save_workbook()
 
     def date_validation(self, i, x) -> bool:
