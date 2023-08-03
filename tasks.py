@@ -17,7 +17,8 @@ class NyTimesAutomation:
 
     def teardown(self):
         self.browser.close_all_browsers()
-
+    
+    
     def run_automation(self):
         sections = ['Sports']
         search_phrase = "Brazil"
