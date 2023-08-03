@@ -71,7 +71,8 @@ class Actions:
         time.sleep(5)
 
     def save_workbook(self) -> None:
-        self.excel_file.save_workbook("news.xlsx")
+        # self.excel_file.save_workbook("news.xlsx")
+        self.excel_file.save_workbook("output/news.xlsx")
 
     def create_workbook(self) -> None:
         self.excel_file.create_workbook()
