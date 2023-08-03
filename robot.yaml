@@ -3,7 +3,8 @@
 
 tasks:
   Minimal Task:
-    shell: python -m robocorp.tasks run tasks.py
+    #shell: python -m robocorp.tasks run tasks.py
+    shell: python -m robocorp.tasks run tasks.NyTimesAutomation
 
 devTasks: {}
 
