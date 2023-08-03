@@ -4,7 +4,8 @@
 tasks:
   Minimal Task:
     #shell: python -m robocorp.tasks run tasks.py
-    shell: python -m robocorp.tasks run tasks.NyTimesAutomation
+    #shell: python -m robocorp.tasks run tasks.NyTimesAutomation
+    shell: python -m nyt-challenge.tasks run tasks.NyTimesAutomation
 
 devTasks: {}
 
