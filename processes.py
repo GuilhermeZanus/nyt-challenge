@@ -71,13 +71,13 @@ class Actions:
         time.sleep(5)
 
     def save_workbook(self) -> None:
-        self.excel_file.save_workbook(path="./output/news.xlsx")
-        # self.excel_file.save_workbook()
+        # self.excel_file.save_workbook(path="./output/news.xlsx")
+        self.excel_file.save_workbook()
 
     def create_workbook(self) -> None:
-        self.excel_file.create_workbook()
+        self.excel_file.create_workbook(path="./output/news.xlsx", fmt="xlsx")
         # self.excel_file.create_workbook(path="news.xlsx")
-        self.save_workbook(path="./output/news.xlsx")
+        self.save_workbook()
 
     def date_validation(self, i, x) -> bool:
 
