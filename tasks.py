@@ -22,7 +22,7 @@ class NyTimesAutomation:
     
     
     def run_automation(self):
-        # self.work_items.get_work_item_payload()
+        self.work_items.get_work_item_payload()
 
         variables =[{"sections": "Food"}, {"search_phrase": "Italy"}, {"months_of_search", "3"}]
 
