@@ -4,6 +4,7 @@ from RPA.Excel.Files import Files
 from RPA.HTTP import HTTP
 from processes import Actions
 from elements import MappingElements
+from RPA.Robocorp.WorkItems import WorkItems
 
 
 class NyTimesAutomation:
@@ -14,15 +15,16 @@ class NyTimesAutomation:
         self.calendar = Calendar()
         self.find = MappingElements(self.browser)
         self.tasks = Actions(self.browser)
+        self.work_items = WorkItems()
 
     def teardown(self):
         self.browser.close_all_browsers()
     
     
     def run_automation(self):
-        sections = ['Sports']
-        search_phrase = "Brazil"
-        months_of_search = 2
+        sections = self.work_items.get_work_item_variable("sections")
+        search_phrase = self.work_items.get_work_item_variable("search_phrase")
+        months_of_search = self.work_items.get_work_item_variable("months_of_search")
 
         try:
             self.tasks.open_the_website("https://www.nytimes.com/")
