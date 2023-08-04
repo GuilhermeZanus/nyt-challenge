@@ -22,6 +22,8 @@ class NyTimesAutomation:
     
     
     def run_automation(self):
+        self.work_items.get_input_work_item()
+
         sections = self.work_items.get_work_item_variable("sections")
         search_phrase = self.work_items.get_work_item_variable("search_phrase")
         months_of_search = self.work_items.get_work_item_variable("months_of_search")
