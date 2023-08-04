@@ -204,7 +204,7 @@ class Actions:
         try:
             picture_element = self.find.picture_element(i)
             picture_filename = self.browser.get_element_attribute(picture_element, "src")   
-            self.http.download(picture_filename)
+            self.http.download(picture_filename, "./output/")
 
         except ElementNotFound:
             pass  
