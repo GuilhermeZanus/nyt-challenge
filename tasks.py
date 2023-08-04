@@ -26,9 +26,9 @@ class NyTimesAutomation:
 
         variables =[{"sections": "Food"}, {"search_phrase": "Italy"}, {"months_of_search", "3"}]
 
-        sections = self.work_items.get_work_item_variable("sections", variables)
-        search_phrase = self.work_items.get_work_item_variable("search_phrase", variables)
-        months_of_search = self.work_items.get_work_item_variable("months_of_search", variables)
+        sections = self.work_items.get_work_item_variable("sections")
+        search_phrase = self.work_items.get_work_item_variable("search_phrase")
+        months_of_search = self.work_items.get_work_item_variable("months_of_search")
 
         try:
             self.tasks.open_the_website("https://www.nytimes.com/")
