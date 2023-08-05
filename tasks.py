@@ -18,6 +18,7 @@ class NyTimesAutomation:
         self.find = MappingElements(self.browser)
         self.tasks = Actions(self.browser)
         self.wi = WorkItems()
+        
 
     def teardown(self):
         self.browser.close_all_browsers()
@@ -28,7 +29,8 @@ class NyTimesAutomation:
         self.wi.get_input_work_item()
         # variables = self.wi.get_work_item_payload()
 
-        variables = self.wi.get_work_item_variables()
+        # variables = self.wi.get_work_item_variables()
+        variables = self.wi.get_work_item_variable("SECTION")
         for variable, value in variables.items():
             print(variable, value)
             # logging.info("%s = %s", variable, value)
