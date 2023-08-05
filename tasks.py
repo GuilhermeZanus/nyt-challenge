@@ -48,14 +48,20 @@ class NyTimesAutomation:
         # self.work_items.get_work_item_payload()
         # for variable, value in variables.items():
         sections = self.wi.set_work_item_variable("sections",list(variables.values())[0])
+        print(list(variables.values())[0])
+        print(sections)
         # sections = self.wi.get_work_item_variable(variables.values[0])
             # sections = self.wi.get_work_item_variable("sections" )
             # self.work_items.get_input_work_item()
         search_phrase = self.wi.set_work_item_variable("search_phrase",list(variables.values())[1])
+        print(list(variables.values())[1])
+        print(search_phrase)
         # search_phrase = self.wi.get_work_item_variable(variables.values[1])
             # self.work_items.get_input_work_item()
         
         months_of_search = self.wi.set_work_item_variable("months_of_search",list(variables.values())[2])
+        print(list(variables.values())[2])
+        print(months_of_search)
         # months_of_search = self.wi.get_work_item_variable(variables.values[2])
 
         try:
