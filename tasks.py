@@ -48,8 +48,10 @@ class NyTimesAutomation:
         # self.work_items.get_work_item_payload()
         # for variable, value in variables.items():
         # sections = str(self.wi.set_work_item_variable("sections",list(variables.values())[0]))
-        sections = str(self.wi.get_work_item_variable(list(variables.values())[0]))
+        print(variables["sections"])
         print(list(variables.values())[0])
+        sections = str(self.wi.get_work_item_variable(variables["sections"]))
+        
         print(sections)
         # sections = self.wi.get_work_item_variable(variables.values[0])
             # sections = self.wi.get_work_item_variable("sections" )
