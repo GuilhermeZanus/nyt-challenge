@@ -45,6 +45,7 @@ class Actions:
         self.browser.click_button(accept_button)
     
     def search_for(self, term) -> None:
+        time.sleep(5)
         search_icon = self.find.search_icon()
         print("****clicando na lupa")
         self.browser.click_button(search_icon)
