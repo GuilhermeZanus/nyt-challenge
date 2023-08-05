@@ -5,6 +5,7 @@ from RPA.HTTP import HTTP
 from processes import Actions
 from elements import MappingElements
 from RPA.Robocorp.WorkItems import WorkItems
+import json
 
 
 class NyTimesAutomation:
@@ -23,10 +24,16 @@ class NyTimesAutomation:
     
     def run_automation(self):
         
+        with open("work_item.json", "r") as json_file:
+            work_item_data = json.load(json_file)
+
+        sections = work_item_data["sections"]
+        search_phrase = work_item_data["search_phrase"]
+        months_of_search = work_item_data["months_of_search"]
 
         # variables =[{"sections": "Food"}, {"search_phrase": "Italy"}, {"months_of_search", "3"}]
 
-        self.work_items.get_work_item_payload()
+        # self.work_items.get_work_item_payload()
         sections = self.work_items.get_work_item_variable("sections")
         # self.work_items.get_input_work_item()
         search_phrase = self.work_items.get_work_item_variable("search_phrase")
@@ -59,5 +66,6 @@ class NyTimesAutomation:
 
 
 if __name__ == "__main__":
+
     automation = NyTimesAutomation()
     automation.run_automation()
