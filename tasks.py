@@ -28,7 +28,7 @@ class NyTimesAutomation:
             work_item_data = json.load(json_file)
 
 
-        self.work_items.set_current_work_item("work-items.json")
+        self.work_items.set_current_work_item(work_item_data)
         sections = work_item_data[0]
         search_phrase = work_item_data[1]
         months_of_search = work_item_data[2]
