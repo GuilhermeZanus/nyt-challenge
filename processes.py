@@ -23,6 +23,7 @@ class Actions:
     
     def open_the_website(self, url) -> None:
         self.browser.open_available_browser(url, headless=True)
+        time.sleep(10)
         # self.browser.open_headless_chrome_browser(url)
 
     def maximize_browser(self) -> None:
