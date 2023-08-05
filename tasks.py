@@ -59,27 +59,32 @@ class NyTimesAutomation:
 
         sections = self.wi.get_work_item_variable("sections", default="Arts")
         # sections = str(variables["sections"])
-        
-        
-        
-        
-        
+        print(sections)
+
+        search_phrase = self.wi.get_work_item_variable("search_phrase", default="Brazil")
+        # search_phrase = str(variables["search_phrase"])
+        print(search_phrase)
+
+        months_of_search = self.wi.get_work_item_variable("months_of_search", default=2)
+        # months_of_search = int(variables["months_of_search"])
+        print(months_of_search)
+
         # sections = str(self.wi.get_work_item_variable(variables["sections"]))
         
-        print(sections)
+        # print(sections)
         # sections = self.wi.get_work_item_variable(variables.values[0])
             # sections = self.wi.get_work_item_variable("sections" )
             # self.work_items.get_input_work_item()
-        search_phrase = str(variables["search_phrase"])
+        # search_phrase = str(variables["search_phrase"])
         # search_phrase = str(self.wi.set_work_item_variable("search_phrase",list(variables.values())[1]))
-        print(list(variables.values())[1])
-        print(search_phrase)
+        # print(list(variables.values())[1])
+        # print(search_phrase)
         # search_phrase = self.wi.get_work_item_variable(variables.values[1])
             # self.work_items.get_input_work_item()
-        months_of_search = int(variables["months_of_search"])
+        # months_of_search = int(variables["months_of_search"])
         # months_of_search = str(self.wi.set_work_item_variable("months_of_search",list(variables.values())[2]))
-        print(list(variables.values())[2])
-        print(months_of_search)
+        # print(list(variables.values())[2])
+        # print(months_of_search)
         # months_of_search = self.wi.get_work_item_variable(variables.values[2])
 
         try:
