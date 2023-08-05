@@ -121,29 +121,41 @@ class Actions:
 
         if(re.match("^[A-Za-z]{4} \d{1,2} \d{4}$", str(article_date_no_dot))):
             adjusted_article_date = self.calendar.create_time(article_date_no_dot, "MMMM DD YYYY")
-            validation = self.calendar.compare_times(str(focus_date), str(adjusted_article_date))
-            
-            return validation 
+            # validation = self.calendar.compare_times(str(focus_date), str(adjusted_article_date))            
+            # return validation 
+
+            first_validation = self.calendar.compare_times(str(focus_date), str(adjusted_article_date))
+            if first_validation or focus_date==adjusted_article_date:
+                validation = True
+                return validation 
 
         if(re.match("^[A-Za-z]{4} \d{1,2}$", str(article_date_no_dot))):
             adjusted_article_date = self.calendar.create_time(article_date_no_dot, "MMMM DD")
-            validation = self.calendar.compare_times(str(focus_date), str(adjusted_article_date))
-        
-            return validation    
+            # validation = self.calendar.compare_times(str(focus_date), str(adjusted_article_date))        
+            # return validation 
+
+            first_validation = self.calendar.compare_times(str(focus_date), str(adjusted_article_date))
+            if first_validation or focus_date==adjusted_article_date:
+                validation = True
+                return validation    
 
         if(re.match("^[A-Za-z]{3} \d{1,2} \d{3}$", str(article_date_no_dot))):
             adjusted_article_date = self.calendar.create_time(article_date_no_dot, "MMM DD YYYY")
-            validation = self.calendar.compare_times(str(focus_date), str(adjusted_article_date))
-    
-            return validation    
+            # validation = self.calendar.compare_times(str(focus_date), str(adjusted_article_date))    
+            # return validation 
+
+            first_validation = self.calendar.compare_times(str(focus_date), str(adjusted_article_date))
+            if first_validation or focus_date==adjusted_article_date:
+                validation = True
+                return validation   
 
         if(re.match("^[A-Za-z]{3} \d{1,2}$", str(article_date_no_dot))):
             adjusted_article_date = self.calendar.create_time(article_date_no_dot, "MMM DD")
             
             print("adjusted_article_date = " + str(adjusted_article_date))
-            # validation = self.calendar.compare_times(str(focus_date), str(adjusted_article_date))
-            
+            # validation = self.calendar.compare_times(str(focus_date), str(adjusted_article_date))            
             # return validation    
+
             first_validation = self.calendar.compare_times(str(focus_date), str(adjusted_article_date))
             if first_validation or focus_date==adjusted_article_date:
                 validation = True
