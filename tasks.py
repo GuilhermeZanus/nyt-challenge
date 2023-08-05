@@ -27,9 +27,9 @@ class NyTimesAutomation:
         with open("devdata/work-items.json", "r") as json_file:
             work_item_data = json.load(json_file)
 
-        sections = work_item_data["sections"]
-        search_phrase = work_item_data["search_phrase"]
-        months_of_search = work_item_data["months_of_search"]
+        sections = work_item_data[0]
+        search_phrase = work_item_data[1]
+        months_of_search = work_item_data[2]
 
         # variables =[{"sections": "Food"}, {"search_phrase": "Italy"}, {"months_of_search", "3"}]
 
