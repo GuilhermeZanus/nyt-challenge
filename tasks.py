@@ -1,3 +1,4 @@
+from typing import List
 from RPA.Browser.Selenium import Selenium
 from RPA.Calendar import Calendar
 from RPA.Excel.Files import Files
@@ -27,39 +28,20 @@ class NyTimesAutomation:
     def run_automation(self):
         
         self.wi.get_input_work_item()
-        # variables = self.wi.get_work_item_payload()
 
         # variables = self.wi.get_work_item_variables()
         # for variable, value in variables.items():
             # print(variable, value)
-            # logging.info("%s = %s", variable, value)
-
-        # print(variables["sections"])
-        # print(list(variables.values())[0])
-        
-        # self.wi.get_input_work_item()
-        # with open("devdata/work-items.json", "r") as json_file:
-            # work_item_data = json.load(json_file)
-
-
-        # self.work_items.set_current_work_item(work_item_data)
-        # sections = work_item_data[0]["sections"]
-        # search_phrase = work_item_data[1]["search_phrase"]
-        # months_of_search = work_item_data[2]["months_of_search"]
-
-        # variables =[{"sections": "Food"}, {"search_phrase": "Italy"}, {"months_of_search", "3"}]
-
-        # self.work_items.get_work_item_payload()
-        # for variable, value in variables.items():
-        # sections = str(self.wi.set_work_item_variable("sections",list(variables.values())[0]))
-
-        # sections = str(self.wi.get_work_item_payload(variables["sections"]))
 
 
 
-        sections = self.wi.get_work_item_variable("sections", default="Arts")
+        # sections = self.wi.get_work_item_variable("sections", default="Arts")
         # sections = str(variables["sections"])
+        sections = List[str]
+        sections = self.wi.get_work_item_variable("sections", default="Arts")
+       
         print(sections)
+
 
         search_phrase = self.wi.get_work_item_variable("search_phrase", default="Brazil")
         # search_phrase = str(variables["search_phrase"])
@@ -69,23 +51,7 @@ class NyTimesAutomation:
         # months_of_search = int(variables["months_of_search"])
         print(months_of_search)
 
-        # sections = str(self.wi.get_work_item_variable(variables["sections"]))
-        
-        # print(sections)
-        # sections = self.wi.get_work_item_variable(variables.values[0])
-            # sections = self.wi.get_work_item_variable("sections" )
-            # self.work_items.get_input_work_item()
-        # search_phrase = str(variables["search_phrase"])
-        # search_phrase = str(self.wi.set_work_item_variable("search_phrase",list(variables.values())[1]))
-        # print(list(variables.values())[1])
-        # print(search_phrase)
-        # search_phrase = self.wi.get_work_item_variable(variables.values[1])
-            # self.work_items.get_input_work_item()
-        # months_of_search = int(variables["months_of_search"])
-        # months_of_search = str(self.wi.set_work_item_variable("months_of_search",list(variables.values())[2]))
-        # print(list(variables.values())[2])
-        # print(months_of_search)
-        # months_of_search = self.wi.get_work_item_variable(variables.values[2])
+
 
         try:
             print("*****abrindo o navegador")
