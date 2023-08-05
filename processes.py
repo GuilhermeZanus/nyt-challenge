@@ -24,7 +24,6 @@ class Actions:
     
     def open_the_website(self, url) -> None:
         # self.browser.open_available_browser(url, headless=True)
-        time.sleep(5)
         self.browser.open_headless_chrome_browser(url)
 
     def maximize_browser(self) -> None:
@@ -85,7 +84,7 @@ class Actions:
                 checkbox = self.find.checkbox_section(str(item))
                 self.browser.click_element(checkbox)
             except ElementNotFound:
-                print("Section " + str(item) + "not found. The robot will continue to run with the oyher sections")
+                print("Section " + str(item) + " not found. The robot will continue to run with the other sections")
         # print("***** "+sections) 
         # checkbox = self.find.checkbox_section(str(sections))            
         # self.browser.click_element(checkbox)
