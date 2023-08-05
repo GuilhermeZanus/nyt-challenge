@@ -43,12 +43,13 @@ class NyTimesAutomation:
         # variables =[{"sections": "Food"}, {"search_phrase": "Italy"}, {"months_of_search", "3"}]
 
         # self.work_items.get_work_item_payload()
-        for variable, value in variables.items():
-            sections = self.wi.get_work_item_variable("sections" )
+        # for variable, value in variables.items():
+        sections = self.wi.get_work_item_variable(variables[0] )
+            # sections = self.wi.get_work_item_variable("sections" )
             # self.work_items.get_input_work_item()
-            search_phrase = self.wi.get_work_item_variable("search_phrase")
+        search_phrase = self.wi.get_work_item_variable(variables[1])
             # self.work_items.get_input_work_item()
-            months_of_search = self.wi.get_work_item_variable("months_of_search")
+        months_of_search = self.wi.get_work_item_variable(variables[2])
 
         try:
             self.tasks.open_the_website("https://www.nytimes.com/")
