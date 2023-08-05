@@ -26,7 +26,8 @@ class NyTimesAutomation:
     def run_automation(self):
         
         self.wi.get_input_work_item()
-        variables = self.wi.get_work_item_variables()
+        variables = self.wi.get_work_item_payload()
+        # variables = self.wi.get_work_item_variables()
         for variable, value in variables.items():
             logging.info("%s = %s", variable, value)
         
