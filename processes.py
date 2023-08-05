@@ -45,12 +45,12 @@ class Actions:
         return self.browser.is_element_visible(cookies_message)
     
     def click_accept_cookies(self) -> None:
-        time.sleep(5)
+        # time.sleep(5)
         accept_button = self.find.accept_button()
         self.browser.click_button(accept_button)
     
     def search_for(self, term) -> None:
-        time.sleep(5)
+        # time.sleep(5)
         search_icon = self.find.search_icon()
         print("****clicando na lupa")
         self.browser.click_button(search_icon)
