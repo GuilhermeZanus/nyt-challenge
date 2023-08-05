@@ -74,7 +74,7 @@ class NyTimesAutomation:
             print("*****abrindo o navegador")
             self.tasks.open_the_website("https://www.nytimes.com/")
             print("*****maximizando o navegador")
-            self.tasks.maximize_browser()
+            # self.tasks.maximize_browser()
 
             print("*****verificando update_terms_visible")
             if self.tasks.updated_terms_visible():

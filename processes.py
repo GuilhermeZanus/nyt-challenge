@@ -22,9 +22,9 @@ class Actions:
         
     
     def open_the_website(self, url) -> None:
-        self.browser.open_available_browser(url, headless=True)
+        # self.browser.open_available_browser(url, headless=True)
         time.sleep(5)
-        # self.browser.open_headless_chrome_browser(url)
+        self.browser.open_headless_chrome_browser(url)
 
     def maximize_browser(self) -> None:
         self.browser.maximize_browser_window()  
