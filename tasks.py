@@ -71,14 +71,19 @@ class NyTimesAutomation:
         # months_of_search = self.wi.get_work_item_variable(variables.values[2])
 
         try:
+            print("*****abrindo o navegador")
             self.tasks.open_the_website("https://www.nytimes.com/")
+            print("*****maximizando o navegador")
             self.tasks.maximize_browser()
 
-
+            print("*****verificando update_terms_visible")
             if self.tasks.updated_terms_visible():
+                print("*****clicando em continue para update_terms_visible")
                 self.tasks.click_continue_updated_terms()
 
+            print("*****verificando cookies_message_visible")
             if self.tasks.cookies_message_visible():
+                print("*****clicando accept em cookies_message_visible")
                 self.tasks.click_accept_cookies()
 
             self.tasks.search_for(search_phrase)

@@ -27,6 +27,7 @@ class MappingElements:
         return self.browser.find_element("css: div[data-testid='section'] button")
     
     def checkbox_section(self, section):
+        print("*****encontrando a " + section)
         return self.browser.find_element(f"xpath: //span[contains(text(), '{section}')]/../input")
      
     def category_dropdown(self):
