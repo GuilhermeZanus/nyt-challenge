@@ -1,11 +1,11 @@
 [
-  {      
-    "sections": "Sports"
-  },
   {
-    "search_phrase": "Brazil"
-  },
-  {
-    "months_of_search": "2"      
+      "payload": {
+          "sections": "Sports",
+          "search_phrase": "Brazil",
+          "months_of_search": "2"
+      },
+      "files": {          
+      }
   }
 ]
