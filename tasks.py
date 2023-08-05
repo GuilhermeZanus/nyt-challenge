@@ -30,7 +30,8 @@ class NyTimesAutomation:
 
         variables = self.wi.get_work_item_variables()
         for variable, value in variables.items():
-            logging.info("%s = %s", variable, value)
+            print(variable, value)
+            # logging.info("%s = %s", variable, value)
         
         
         # with open("devdata/work-items.json", "r") as json_file:
@@ -46,7 +47,7 @@ class NyTimesAutomation:
 
         # self.work_items.get_work_item_payload()
         # for variable, value in variables.items():
-        sections = self.wi.set_work_item_variable(variables.values[0])
+        sections = self.wi.set_work_item_variable(list(variables.values())[0])
         # sections = self.wi.get_work_item_variable(variables.values[0])
             # sections = self.wi.get_work_item_variable("sections" )
             # self.work_items.get_input_work_item()
