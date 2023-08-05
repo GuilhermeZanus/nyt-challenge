@@ -29,9 +29,9 @@ class NyTimesAutomation:
 
 
         self.work_items.set_current_work_item(work_item_data)
-        sections = work_item_data[0]
-        search_phrase = work_item_data[1]
-        months_of_search = work_item_data[2]
+        sections = work_item_data[0]["sections"]
+        search_phrase = work_item_data[1]["search_phrase"]
+        months_of_search = work_item_data[2]["months_of_search"]
 
         # variables =[{"sections": "Food"}, {"search_phrase": "Italy"}, {"months_of_search", "3"}]
 
