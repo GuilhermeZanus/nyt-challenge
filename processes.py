@@ -45,19 +45,23 @@ class Actions:
     
     def search_for(self, term) -> None:
         search_icon = self.find.search_icon()
+        print("clicando na lupa")
         self.browser.click_button(search_icon)
 
         search_field = self.find.search_field()
+        print("esperando o campo para digitar o texto")
         self.browser.wait_until_element_is_visible(search_field, 2)
+        print("iserindo o texto de pesquisa" + term)
         self.browser.input_text(search_field, term)
         self.browser.press_keys(search_field, "ENTER")
 
         section_button = self.find.section_button()
-
+        print("aguardando o section button estar visível")
         self.browser.wait_until_element_is_visible(section_button, 10)
 
     def click_section(self) -> None:
-        section_button = self.find.section_button()        
+        section_button = self.find.section_button() 
+        print("clicando no section button")       
         self.browser.click_button(section_button)
 
     def select_section(self, sections) -> None:
