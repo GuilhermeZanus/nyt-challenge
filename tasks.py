@@ -57,7 +57,7 @@ class NyTimesAutomation:
 
 
 
-        sections = self.wi.get_work_item_variable("sections")
+        sections = self.wi.get_work_item_variable("sections", default="Arts")
         # sections = str(variables["sections"])
         
         
