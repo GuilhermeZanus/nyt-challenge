@@ -7,6 +7,7 @@ import re
 import os
 from RPA.HTTP import HTTP
 from elements import MappingElements
+from typing import List
 
 class Actions:
 
@@ -72,16 +73,20 @@ class Actions:
         self.browser.click_button(section_button)
 
     def select_section(self, sections) -> None:
-        # for section in sections:
-        section = str([section.strip() for section in sections.split(",")])
 
-        print("***** "+section)
-        # print("***** "+sections)
+        section_list = List[str]
+        
+        section_list = [section_list.strip() for section_list in sections.split(",")]
+        print("section_list = "+section_list)
 
-
-        checkbox = self.find.checkbox_section(str(section)) 
+        for item in section_list:
+            print("***** "+str("item in section_list = "+item))
+            checkbox = self.find.checkbox_section(str(item))
+            self.browser.click_element(checkbox)
+        
+        # print("***** "+sections) 
         # checkbox = self.find.checkbox_section(str(sections))            
-        self.browser.click_element(checkbox)
+        # self.browser.click_element(checkbox)
 
     def select_news_category(self, type) -> None:
         category_dropdown = self.find.category_dropdown()
