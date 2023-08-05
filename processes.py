@@ -30,7 +30,7 @@ class Actions:
         self.browser.maximize_browser_window()  
 
     def updated_terms_visible(self) -> bool:
-        time.sleep(5)
+        # time.sleep(5)
         update_terms = self.find.updated_terms()
         return self.browser.is_element_visible(update_terms)
     
