@@ -24,7 +24,7 @@ class NyTimesAutomation:
     
     def run_automation(self):
         
-        with open("devdata/work_items.json", "r") as json_file:
+        with open("devdata/work-items.json", "r") as json_file:
             work_item_data = json.load(json_file)
 
         sections = work_item_data["sections"]
