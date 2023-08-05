@@ -77,10 +77,10 @@ class Actions:
         section_list = List[str]
         
         section_list = [section_list.strip() for section_list in sections.split(",")]
-        print("section_list = "+section_list)
+        print("section_list = " + str(section_list))
 
         for item in section_list:
-            print("***** "+str("item in section_list = "+item))
+            print("***** "+str("item in section_list = " + str(item)))
             checkbox = self.find.checkbox_section(str(item))
             self.browser.click_element(checkbox)
         
