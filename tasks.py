@@ -6,6 +6,7 @@ from processes import Actions
 from elements import MappingElements
 from RPA.Robocorp.WorkItems import WorkItems
 import json
+import logging
 
 
 class NyTimesAutomation:
@@ -16,7 +17,7 @@ class NyTimesAutomation:
         self.calendar = Calendar()
         self.find = MappingElements(self.browser)
         self.tasks = Actions(self.browser)
-        self.work_items = WorkItems()
+        self.wi = WorkItems()
 
     def teardown(self):
         self.browser.close_all_browsers()
@@ -24,23 +25,29 @@ class NyTimesAutomation:
     
     def run_automation(self):
         
-        with open("devdata/work-items.json", "r") as json_file:
-            work_item_data = json.load(json_file)
+        self.wi.get_input_work_item()
+        variables = self.wi.get_work_item_variables()
+        for variable, value in variables.items():
+            logging.info("%s = %s", variable, value)
+        
+        
+        # with open("devdata/work-items.json", "r") as json_file:
+            # work_item_data = json.load(json_file)
 
 
-        self.work_items.set_current_work_item(work_item_data)
-        sections = work_item_data[0]["sections"]
-        search_phrase = work_item_data[1]["search_phrase"]
-        months_of_search = work_item_data[2]["months_of_search"]
+        # self.work_items.set_current_work_item(work_item_data)
+        # sections = work_item_data[0]["sections"]
+        # search_phrase = work_item_data[1]["search_phrase"]
+        # months_of_search = work_item_data[2]["months_of_search"]
 
         # variables =[{"sections": "Food"}, {"search_phrase": "Italy"}, {"months_of_search", "3"}]
 
         # self.work_items.get_work_item_payload()
-        sections = self.work_items.get_work_item_variable("sections")
+        # sections = self.work_items.get_work_item_variable("sections")
         # self.work_items.get_input_work_item()
-        search_phrase = self.work_items.get_work_item_variable("search_phrase")
+        # search_phrase = self.work_items.get_work_item_variable("search_phrase")
         # self.work_items.get_input_work_item()
-        months_of_search = self.work_items.get_work_item_variable("months_of_search")
+        # months_of_search = self.work_items.get_work_item_variable("months_of_search")
 
         try:
             self.tasks.open_the_website("https://www.nytimes.com/")
