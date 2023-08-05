@@ -23,25 +23,29 @@ class Actions:
     
     def open_the_website(self, url) -> None:
         self.browser.open_available_browser(url, headless=True)
-        time.sleep(10)
+        time.sleep(5)
         # self.browser.open_headless_chrome_browser(url)
 
     def maximize_browser(self) -> None:
         self.browser.maximize_browser_window()  
 
     def updated_terms_visible(self) -> bool:
+        time.sleep(5)
         update_terms = self.find.updated_terms()
         return self.browser.is_element_visible(update_terms)
     
     def click_continue_updated_terms(self) -> None:
+        time.sleep(5)
         updated_terms_button = self.find.updated_terms_continue_button()
         self.browser.click_button(updated_terms_button)
 
     def cookies_message_visible(self) -> bool:
+        time.sleep(5)
         cookies_message = self.find.cookies_message()
         return self.browser.is_element_visible(cookies_message)
     
     def click_accept_cookies(self) -> None:
+        time.sleep(5)
         accept_button = self.find.accept_button()
         self.browser.click_button(accept_button)
     
