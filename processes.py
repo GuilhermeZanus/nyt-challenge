@@ -110,11 +110,14 @@ class Actions:
         article_date_no_dot = article_date_no_commas.replace('.', '')
         today = self.calendar.create_time(str(self.calendar.time_now(return_format="MM YYYY")), "MM YYYY")            
         
+        
         if x==0:
             focus_date = today.add(months=-x)
         else:
             focus_date = today.add(months=(-x+1))
         
+        print("focus_date = " + focus_date) 
+        print("adjusted_article_date = " + adjusted_article_date)
 
         if(re.match("^[A-Za-z]{4} \d{1,2} \d{4}$", str(article_date_no_dot))):
             adjusted_article_date = self.calendar.create_time(article_date_no_dot, "MMMM DD YYYY")
@@ -136,9 +139,17 @@ class Actions:
 
         if(re.match("^[A-Za-z]{3} \d{1,2}$", str(article_date_no_dot))):
             adjusted_article_date = self.calendar.create_time(article_date_no_dot, "MMM DD")
-            validation = self.calendar.compare_times(str(focus_date), str(adjusted_article_date))
             
-            return validation    
+            
+            # validation = self.calendar.compare_times(str(focus_date), str(adjusted_article_date))
+            
+            # return validation    
+            first_validation = self.calendar.compare_times(str(focus_date), str(adjusted_article_date))
+            if first_validation or focus_date==adjusted_article_date:
+                validation = True
+                return validation
+
+
 
         if(re.match("^\d+h ago$", str(article_date_no_dot))):
             validation = True
