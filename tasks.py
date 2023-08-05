@@ -30,7 +30,7 @@ class NyTimesAutomation:
         # variables = self.wi.get_work_item_payload()
 
         # variables = self.wi.get_work_item_variables()
-        variables = self.wi.get_work_item_variable("SECTION")
+        variables = self.wi.get_work_item_variable("sections")
         for variable, value in variables.items():
             print(variable, value)
             # logging.info("%s = %s", variable, value)
