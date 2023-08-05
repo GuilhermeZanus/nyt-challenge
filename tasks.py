@@ -27,6 +27,8 @@ class NyTimesAutomation:
         with open("devdata/work-items.json", "r") as json_file:
             work_item_data = json.load(json_file)
 
+
+        self.work_items.set_current_work_item("work-items.json")
         sections = work_item_data[0]
         search_phrase = work_item_data[1]
         months_of_search = work_item_data[2]
