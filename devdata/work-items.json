@@ -1,10 +1,11 @@
 [
   {      
-    "sections": "Sports",
-    "search_phrase": "Brazil",
+    "sections": "Sports"
+  },
+  {
+    "search_phrase": "Brazil"
+  },
+  {
     "months_of_search": "2"      
   }
 ]
-
-
-
