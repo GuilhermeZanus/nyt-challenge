@@ -79,11 +79,13 @@ class Actions:
         section_list = [section_list.strip() for section_list in sections.split(",")]
         print("section_list = " + str(section_list))
 
-        for item in section_list:
+        for item in section_list:            
             print("***** "+str("item in section_list = " + str(item)))
-            checkbox = self.find.checkbox_section(str(item))
-            self.browser.click_element(checkbox)
-        
+            try:
+                checkbox = self.find.checkbox_section(str(item))
+                self.browser.click_element(checkbox)
+            except ElementNotFound:
+                print("Section " + str(item) + "not found. The robot will continue to run with the oyher sections")
         # print("***** "+sections) 
         # checkbox = self.find.checkbox_section(str(sections))            
         # self.browser.click_element(checkbox)
