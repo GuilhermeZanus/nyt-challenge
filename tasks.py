@@ -33,7 +33,7 @@ class NyTimesAutomation:
             print(variable, value)
             # logging.info("%s = %s", variable, value)
         
-        # self.wi.get_input_work_item()
+        self.wi.get_input_work_item()
         # with open("devdata/work-items.json", "r") as json_file:
             # work_item_data = json.load(json_file)
 
