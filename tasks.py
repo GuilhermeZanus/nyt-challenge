@@ -26,7 +26,7 @@ class NyTimesAutomation:
 
         # variables =[{"sections": "Food"}, {"search_phrase": "Italy"}, {"months_of_search", "3"}]
 
-        # self.work_items.get_input_work_item()
+        self.work_items.get_work_item_payload()
         sections = self.work_items.get_work_item_variable("sections")
         # self.work_items.get_input_work_item()
         search_phrase = self.work_items.get_work_item_variable("search_phrase")
