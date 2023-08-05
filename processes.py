@@ -73,7 +73,7 @@ class Actions:
 
     def select_section(self, sections) -> None:
         for section in sections:
-            checkbox = self.find.checkbox_section(section)            
+            checkbox = self.find.checkbox_section(section[0])            
             self.browser.click_element(checkbox)
 
     def select_news_category(self, type) -> None:
