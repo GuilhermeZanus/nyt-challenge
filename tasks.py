@@ -64,7 +64,7 @@ class NyTimesAutomation:
         print(search_phrase)
         # search_phrase = self.wi.get_work_item_variable(variables.values[1])
             # self.work_items.get_input_work_item()
-        months_of_search = str(variables["months_of_search"])
+        months_of_search = int(variables["months_of_search"])
         # months_of_search = str(self.wi.set_work_item_variable("months_of_search",list(variables.values())[2]))
         print(list(variables.values())[2])
         print(months_of_search)
