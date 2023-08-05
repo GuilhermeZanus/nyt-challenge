@@ -51,19 +51,21 @@ class NyTimesAutomation:
         print(variables["sections"])
         print(list(variables.values())[0])
         # sections = str(self.wi.get_work_item_payload(variables["sections"]))
-        sections = str(self.wi.get_work_item_variable(variables["sections"]))
+        sections = variables["sections"]
+        # sections = str(self.wi.get_work_item_variable(variables["sections"]))
         
         print(sections)
         # sections = self.wi.get_work_item_variable(variables.values[0])
             # sections = self.wi.get_work_item_variable("sections" )
             # self.work_items.get_input_work_item()
-        search_phrase = str(self.wi.set_work_item_variable("search_phrase",list(variables.values())[1]))
+        search_phrase = variables["search_phrase"]
+        # search_phrase = str(self.wi.set_work_item_variable("search_phrase",list(variables.values())[1]))
         print(list(variables.values())[1])
         print(search_phrase)
         # search_phrase = self.wi.get_work_item_variable(variables.values[1])
             # self.work_items.get_input_work_item()
-        
-        months_of_search = str(self.wi.set_work_item_variable("months_of_search",list(variables.values())[2]))
+        months_of_search = variables["months_of_search"]
+        # months_of_search = str(self.wi.set_work_item_variable("months_of_search",list(variables.values())[2]))
         print(list(variables.values())[2])
         print(months_of_search)
         # months_of_search = self.wi.get_work_item_variable(variables.values[2])
