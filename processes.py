@@ -35,12 +35,12 @@ class Actions:
         return self.browser.is_element_visible(update_terms)
     
     def click_continue_updated_terms(self) -> None:
-        time.sleep(5)
+        # time.sleep(5)
         updated_terms_button = self.find.updated_terms_continue_button()
         self.browser.click_button(updated_terms_button)
 
     def cookies_message_visible(self) -> bool:
-        time.sleep(5)
+        # time.sleep(5)
         cookies_message = self.find.cookies_message()
         return self.browser.is_element_visible(cookies_message)
     
