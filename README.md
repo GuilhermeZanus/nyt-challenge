@@ -22,7 +22,7 @@ To run this automation script, you need the following libraries installed:
 
 Make sure to install the following library using pip:
 
-pip install rpa-framework
+pip install rpaframework
 
 ## How to Use
 
