@@ -13,29 +13,34 @@ This Python code is an automation script designed to interact with the New York 
 
 ## Requirements
 
-To run this automation script, you need the following libraries installed:
+You can also find the full list of dependencies in the requirements.txt and use the following command to install:
 
-1. RPA.Browser.Selenium
-2. RPA.Calendar
-3. RPA.Excel.Files
-4. RPA.HTTP
-
-Make sure to install the following library using pip:
-
-pip install rpaframework
+pip install -r requirements.txt
 
 ## How to Use
 
-In VS Code, follow the following steps to create a minimal Python robot using Robocorp:
+This project is designed to be used as a robot through the Robocorp Cloud using Work Items.
 
-1. Press "Ctrl + Shift + P" (or "Cmd + Shift + P" on macOS) to open the command palette.
+1. Create a user account at robocorp.com.
 
-2. In the command palette, type "Robocorp: Create Robot" and select the option that appears.
+2. Access the Control Room from the Robocorp Cloud dashboard.
 
-3. Next, in the prompt that shows up, select "Python Minimal" to create a minimal Python-based robot. Following these first three steps will create a new robot skeleton. 
+3. Create a robot and link it to this GitHub repository.
 
-4. Copy the provided code and save it in this new project.
+4. In the "Unattended" section, create a new process.
 
-5. Update the sections, search_phrase, and months_of_search variables according to your requirements in the run_automation method of the NyTimesAutomation class.
+5. Click on "Run Process" and choose from the following options:
 
-6. Run the Python script
+    5.1 "Run": This option performs a search on the NY Times website with the following default filters:
+        Sections: Sports
+        Search Phrase: Brazil
+        Months of Search: 2
+
+    5.2 - "Run with Input Data": With this option, you can define custom filters for the search. Follow these steps:
+
+Enter "sections" in the first field and choose one of the available sections from the website.
+In the next line, enter "search_phrase" and provide the desired search keyword.
+On the third line, enter "months_of_search" and set the number of months to be searched.
+Finally, click on "Run Process" to execute the search with your custom filters.
+
+6. Wait for the process to complete, and the robot will scrape news articles based on your selected filters and save the relevant data to an Excel file and the downloaded news images.

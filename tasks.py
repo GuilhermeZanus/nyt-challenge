@@ -29,7 +29,7 @@ class NyTimesAutomation:
         self.wi.get_input_work_item()
 
         sections = List[str]
-        sections = self.wi.get_work_item_variable("sections", default="Arts")     
+        sections = self.wi.get_work_item_variable("sections", default="Sports")     
 
         search_phrase = self.wi.get_work_item_variable("search_phrase", default="Brazil")
 

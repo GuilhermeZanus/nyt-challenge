@@ -15,8 +15,7 @@ class MappingElements:
         return self.browser.find_element("css: .gdpr")
     
     def accept_button(self):
-        return self.browser.find_element("xpath: //button[text()='Accept']")
-        
+        return self.browser.find_element("xpath: //button[text()='Accept']")        
     
     def search_icon(self):
         return self.browser.find_element("css: button[data-test-id='search-button']")
