@@ -23,52 +23,41 @@ class Actions:
         
     
     def open_the_website(self, url) -> None:
-        # self.browser.open_available_browser(url, headless=True)
         self.browser.open_headless_chrome_browser(url)
 
     def maximize_browser(self) -> None:
         self.browser.maximize_browser_window()  
 
     def updated_terms_visible(self) -> bool:
-        # time.sleep(5)
         update_terms = self.find.updated_terms()
         return self.browser.is_element_visible(update_terms)
     
     def click_continue_updated_terms(self) -> None:
-        # time.sleep(5)
         updated_terms_button = self.find.updated_terms_continue_button()
         self.browser.click_button(updated_terms_button)
 
     def cookies_message_visible(self) -> bool:
-        # time.sleep(5)
         cookies_message = self.find.cookies_message()
         return self.browser.is_element_visible(cookies_message)
     
     def click_accept_cookies(self) -> None:
-        # time.sleep(5)
         accept_button = self.find.accept_button()
         self.browser.click_button(accept_button)
     
     def search_for(self, term) -> None:
-        # time.sleep(5)
         search_icon = self.find.search_icon()
-        print("****clicando na lupa")
         self.browser.click_button(search_icon)
 
         search_field = self.find.search_field()
-        print("****esperando o campo para digitar o texto")
         self.browser.wait_until_element_is_visible(search_field, 2)
-        print("****iserindo o texto de pesquisa" + term)
         self.browser.input_text(search_field, term)
         self.browser.press_keys(search_field, "ENTER")
 
         section_button = self.find.section_button()
-        print("*****aguardando o section button estar visível")
         self.browser.wait_until_element_is_visible(section_button, 10)
 
     def click_section(self) -> None:
-        section_button = self.find.section_button() 
-        print("******clicando no section button")       
+        section_button = self.find.section_button()       
         self.browser.click_button(section_button)
 
     def select_section(self, sections) -> None:
@@ -76,18 +65,15 @@ class Actions:
         section_list = List[str]
         
         section_list = [section_list.strip() for section_list in sections.split(",")]
-        print("section_list = " + str(section_list))
 
         for item in section_list:            
-            print("***** "+str("item in section_list = " + str(item)))
             try:
                 checkbox = self.find.checkbox_section(str(item))
                 self.browser.click_element(checkbox)
             except ElementNotFound:
-                print("Section " + str(item) + " not found. The robot will continue to run with the other sections")
-        # print("***** "+sections) 
-        # checkbox = self.find.checkbox_section(str(sections))            
-        # self.browser.click_element(checkbox)
+                print("Section " + str(item) + " not found. The robot will continue to run " 
+                      + "with the other sections selected. If you selected only this section, " 
+                      +"the robot will choose the section called 'Any' ")
 
     def select_news_category(self, type) -> None:
         category_dropdown = self.find.category_dropdown()
@@ -95,12 +81,10 @@ class Actions:
         time.sleep(5)
 
     def save_workbook(self) -> None:
-        # self.excel_file.save_workbook(path="./output/news.xlsx")
         self.excel_file.save_workbook()
 
     def create_workbook(self) -> None:
         self.excel_file.create_workbook(path="./output/news.xlsx", fmt="xlsx")
-        # self.excel_file.create_workbook(path="news.xlsx")
         self.save_workbook()
 
     def date_validation(self, i, x) -> bool:
@@ -115,15 +99,11 @@ class Actions:
         if x==0:
             focus_date = today.add(months=-x)
         else:
-            focus_date = today.add(months=(-x+1))
-        
-        print("focus_date = " + str(focus_date)) 
-        
+            focus_date = today.add(months=(-x+1))    
 
         if(re.match("^[A-Za-z]{4} \d{1,2} \d{4}$", str(article_date_no_dot))):
             adjusted_article_date = self.calendar.create_time(article_date_no_dot, "MMMM DD YYYY")
-            # validation = self.calendar.compare_times(str(focus_date), str(adjusted_article_date))            
-            # return validation 
+
 
             first_validation = self.calendar.compare_times(str(focus_date), str(adjusted_article_date))
             if first_validation or focus_date==adjusted_article_date:
@@ -132,8 +112,7 @@ class Actions:
 
         if(re.match("^[A-Za-z]{4} \d{1,2}$", str(article_date_no_dot))):
             adjusted_article_date = self.calendar.create_time(article_date_no_dot, "MMMM DD")
-            # validation = self.calendar.compare_times(str(focus_date), str(adjusted_article_date))        
-            # return validation 
+
 
             first_validation = self.calendar.compare_times(str(focus_date), str(adjusted_article_date))
             if first_validation or focus_date==adjusted_article_date:
@@ -142,8 +121,6 @@ class Actions:
 
         if(re.match("^[A-Za-z]{3} \d{1,2} \d{3}$", str(article_date_no_dot))):
             adjusted_article_date = self.calendar.create_time(article_date_no_dot, "MMM DD YYYY")
-            # validation = self.calendar.compare_times(str(focus_date), str(adjusted_article_date))    
-            # return validation 
 
             first_validation = self.calendar.compare_times(str(focus_date), str(adjusted_article_date))
             if first_validation or focus_date==adjusted_article_date:
@@ -153,15 +130,12 @@ class Actions:
         if(re.match("^[A-Za-z]{3} \d{1,2}$", str(article_date_no_dot))):
             adjusted_article_date = self.calendar.create_time(article_date_no_dot, "MMM DD")
             
-            print("adjusted_article_date = " + str(adjusted_article_date))
-            # validation = self.calendar.compare_times(str(focus_date), str(adjusted_article_date))            
-            # return validation    
+            print("adjusted_article_date = " + str(adjusted_article_date))  
 
             first_validation = self.calendar.compare_times(str(focus_date), str(adjusted_article_date))
             if first_validation or focus_date==adjusted_article_date:
                 validation = True
                 return validation
-
 
 
         if(re.match("^\d+h ago$", str(article_date_no_dot))):
@@ -170,8 +144,7 @@ class Actions:
         
         if(re.match("\d+m ago$", str(article_date_no_dot))):
             validation = True
-            return validation
-    
+            return validation    
 
     def get_total_of_occurrences(self, i, search_phrase) -> int:       
         try:
@@ -200,8 +173,6 @@ class Actions:
                 if word == lower_search_phrase:
                     count +=1
 
-
-
         except ElementNotFound:
             description_text = ""
             lower_search_phrase = str(search_phrase).lower()
@@ -214,7 +185,6 @@ class Actions:
             for word in words_of_the_title:
                 if word == lower_search_phrase:
                     count +=1
-
         
         return count
 

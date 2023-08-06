@@ -6,8 +6,7 @@ from RPA.HTTP import HTTP
 from processes import Actions
 from elements import MappingElements
 from RPA.Robocorp.WorkItems import WorkItems
-import json
-import logging
+
 
 
 class NyTimesAutomation:
@@ -29,44 +28,20 @@ class NyTimesAutomation:
         
         self.wi.get_input_work_item()
 
-        # variables = self.wi.get_work_item_variables()
-        # for variable, value in variables.items():
-            # print(variable, value)
-
-
-
-        # sections = self.wi.get_work_item_variable("sections", default="Arts")
-        # sections = str(variables["sections"])
         sections = List[str]
-        sections = self.wi.get_work_item_variable("sections", default="Arts")
-       
-        print(sections)
-
+        sections = self.wi.get_work_item_variable("sections", default="Arts")     
 
         search_phrase = self.wi.get_work_item_variable("search_phrase", default="Brazil")
-        # search_phrase = str(variables["search_phrase"])
-        print(search_phrase)
 
-        months_of_search = self.wi.get_work_item_variable("months_of_search", default=1)
-        # months_of_search = int(variables["months_of_search"])
-        print(months_of_search)
-
-
+        months_of_search = self.wi.get_work_item_variable("months_of_search", default=2)
 
         try:
-            print("*****abrindo o navegador")
             self.tasks.open_the_website("https://www.nytimes.com/")
-            print("*****maximizando o navegador")
-            # self.tasks.maximize_browser()
 
-            print("*****verificando update_terms_visible")
             if self.tasks.updated_terms_visible():
-                print("*****clicando em continue para update_terms_visible")
                 self.tasks.click_continue_updated_terms()
 
-            print("*****verificando cookies_message_visible")
             if self.tasks.cookies_message_visible():
-                print("*****clicando accept em cookies_message_visible")
                 self.tasks.click_accept_cookies()
 
             self.tasks.search_for(search_phrase)

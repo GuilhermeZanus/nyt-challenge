@@ -15,23 +15,19 @@ class MappingElements:
         return self.browser.find_element("css: .gdpr")
     
     def accept_button(self):
-        print("****encontrando accept button")
         return self.browser.find_element("xpath: //button[text()='Accept']")
         
     
     def search_icon(self):
-        print("****encontrando a lupa")
         return self.browser.find_element("css: button[data-test-id='search-button']")
     
     def search_field(self):
-        print("***encontrando search_fiel")
         return self.browser.find_element("css: #search-input input")
     
     def section_button(self):
         return self.browser.find_element("css: div[data-testid='section'] button")
     
     def checkbox_section(self, section):
-        print("*****encontrando a " + section)
         return self.browser.find_element(f"xpath: //span[contains(text(), '{section}')]/../input")
      
     def category_dropdown(self):
