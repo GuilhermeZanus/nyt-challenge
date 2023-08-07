@@ -19,7 +19,16 @@ pip install -r requirements.txt
 
 ## How to Use
 
-This project is designed to be used as a robot through the Robocorp Cloud using Work Items.
+This project is designed to be used locally or as a robot through the Robocorp Cloud using Work Items.
+
+## Using locally
+
+1. Ensure you have met all the requirements mentioned above.
+2. Copy the provided code and save it to a Python file (e.g., nytimes_automation.py).
+3. Update the sections, search_phrase, and months_of_search variables according to your preferences in the run_automation method of the NyTimesAutomation class.
+4. Run the Python script
+
+## Using as a robot through the Robocorp Cloud
 
 1. Create a user account at robocorp.com.
 
@@ -44,3 +53,4 @@ On the third line, enter "months_of_search" and set the number of months to be s
 Finally, click on "Run Process" to execute the search with your custom filters.
 
 6. Wait for the process to complete, and the robot will scrape news articles based on your selected filters and save the relevant data to an Excel file and the downloaded news images.
+
