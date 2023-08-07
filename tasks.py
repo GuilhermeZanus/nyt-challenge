@@ -35,9 +35,9 @@ class NyTimesAutomation:
             search_phrase = self.wi.get_work_item_variable("search_phrase", default="Brazil")
 
             months_of_search = self.wi.get_work_item_variable("months_of_search", default=2)
-            
+
         except KeyError:
-            sections = "Arts, Dogs"
+            sections = "Arts"
             search_phrase = "Brazil"   
             months_of_search = 1
 
