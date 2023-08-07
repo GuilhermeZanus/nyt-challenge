@@ -26,7 +26,7 @@ class NyTimesAutomation:
     
     def run_automation(self):
         
-        # self.wi.get_input_work_item()
+        self.wi.get_input_work_item()
 
         sections = List[str]
         sections = self.wi.get_work_item_variable("sections", default="Sports")     
