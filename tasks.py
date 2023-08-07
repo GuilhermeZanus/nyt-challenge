@@ -26,14 +26,23 @@ class NyTimesAutomation:
     
     def run_automation(self):
         
-        self.wi.get_input_work_item()
+        try:
+            self.wi.get_input_work_item()
 
-        sections = List[str]
-        sections = self.wi.get_work_item_variable("sections", default="Sports")     
+            sections = List[str]
+            sections = self.wi.get_work_item_variable("sections", default="Sports")     
 
-        search_phrase = self.wi.get_work_item_variable("search_phrase", default="Brazil")
+            search_phrase = self.wi.get_work_item_variable("search_phrase", default="Brazil")
 
-        months_of_search = self.wi.get_work_item_variable("months_of_search", default=2)
+            months_of_search = self.wi.get_work_item_variable("months_of_search", default=2)
+        except KeyError:
+            # sections = List[str]
+            # sections = []
+            # sections.append('Arts')
+            sections = "Arts, Dogs"
+            search_phrase = "Brazil"   
+            months_of_search = 1
+
 
         try:
             self.tasks.open_the_website("https://www.nytimes.com/")

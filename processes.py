@@ -62,18 +62,26 @@ class Actions:
 
     def select_section(self, sections) -> None:
 
-        section_list = List[str]
-        
-        section_list = [section_list.strip() for section_list in sections.split(",")]
-
-        for item in section_list:            
+        for section in str(sections).split(","):            
             try:
+                item = section.strip()
+                print(item)
                 checkbox = self.find.checkbox_section(str(item))
                 self.browser.click_element(checkbox)
             except ElementNotFound:
                 print("Section " + str(item) + " not found. The robot will continue to run " 
                       + "with the other sections selected. If you selected only this section, " 
                       +"the robot will choose the section called 'Any' ")
+                
+        # section_list = [section_list.strip() for section_list in sections.split(",")]
+        # for item in section_list:            
+        #     try:
+        #         checkbox = self.find.checkbox_section(str(item))
+        #         self.browser.click_element(checkbox)
+        #     except ElementNotFound:
+        #         print("Section " + str(item) + " not found. The robot will continue to run " 
+        #               + "with the other sections selected. If you selected only this section, " 
+        #               +"the robot will choose the section called 'Any' ")
 
     def select_news_category(self, type) -> None:
         category_dropdown = self.find.category_dropdown()
