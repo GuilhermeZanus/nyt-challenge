@@ -65,7 +65,7 @@ class Actions:
         for section in str(sections).split(","):            
             try:
                 item = section.strip()
-                print(item)
+                print("****Secao a ser selecionada: " + item)
                 checkbox = self.find.checkbox_section(str(item))
                 self.browser.click_element(checkbox)
             except ElementNotFound:
